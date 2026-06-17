@@ -7,192 +7,456 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="logo">Cidadania<span>Digital</span></div>
-        <nav>
+    <header class="navbar" role="banner">
+        <div class="logo" id="site-logo">Cidadania<span>Digital</span></div>
+        
+        <button class="menu-hamburger" id="hamburger-btn" aria-expanded="false" aria-controls="navbar-menu" aria-label="Abrir menu de navegação móvel">
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+        </button>
+
+        <nav class="nav-container" id="navbar-menu" role="navigation" aria-label="Menu Principal">
             <ul class="nav-links">
-                <li><a href="#" class="tab-link active" onclick="switchTab(event, 'conteudo-principal')">Início</a></li>
-                <li><a href="#" class="tab-link" onclick="switchTab(event, 'laboratorio-avancado')">Laboratório Avançado</a></li>
-                <li><a href="#" class="tab-link" onclick="switchTab(event, 'simulador-crise')">Simulador de Crise</a></li>
+                <li>
+                    <a href="#" class="tab-link active" data-target="conteudo-principal" role="tab" aria-selected="true">
+                        <span class="nav-icon">🏠</span> Início
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tab-link" data-target="laboratorio-avancado" role="tab" aria-selected="false">
+                        <span class="nav-icon">🔬</span> Laboratório Avançado
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tab-link" data-target="simulador-crise" role="tab" aria-selected="false">
+                        <span class="nav-icon">🎮</span> Simulador de Crise
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tab-link" data-target="central-recursos" role="tab" aria-selected="false">
+                        <span class="nav-icon">📚</span> Glossário & Ajuda
+                    </a>
+                </li>
             </ul>
         </nav>
-        <button id="theme-toggle" class="btn-theme">Alternar Tema</button>
+
+        <div class="header-actions">
+            <button id="theme-toggle" class="btn-theme" aria-label="Alternar entre modo claro e escuro">Tema</button>
+            <button id="btn-global-help" class="btn-help-icon" aria-label="Abrir manual do usuário">?</button>
+        </div>
     </header>
 
-    <main>
-        <div id="conteudo-principal" class="tab-content active">
+    <main id="main-content" role="main">
+
+        <div id="conteudo-principal" class="tab-content active" role="tabpanel" aria-labelledby="tab-inicio">
+            
             <section id="hero" class="hero-section">
                 <div class="container hero-content">
+                    <span class="hero-badge">Educação e Cidadania 2026</span>
                     <h1>Inteligência Artificial e a Fronteira da Verdade</h1>
-                    <p>Navegar no mundo digital exige novos superpoderes. Descubra como as fake news automatizadas e as deepfakes moldam nossa sociedade e como você pode se proteger.</p>
-                    <a href="#deepfakes" class="btn-primary">Começar Jornada</a>
+                    <p>Navegar no mundo digital exige novos superpoderes. Descubra como as fake news automatizadas e as deepfakes moldam nossa sociedade e aprenda a construir sua própria resiliência cognitiva.</p>
+                    <div class="hero-actions">
+                        <a href="#deepfakes" class="btn-primary">Começar Jornada</a>
+                        <button class="btn-secondary" onclick="document.getElementById('modal-tutorial').showModal()">Ver Vídeo Manifesto</button>
+                    </div>
                 </div>
             </section>
 
             <section id="deepfakes" class="section container">
-                <h2 class="section-title">O que são Deepfakes?</h2>
-                <div class="content-text">
-                    <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial (IA) que substituem o rosto ou a voz de uma pessoa pela de outra, criando situações ultra-realistas que nunca aconteceram.</p>
-                    <p>Embora a tecnologia tenha usos legítimos no cinema e no entretenimento, o seu uso malicioso para espalhar <strong>desinformação automatizada</strong> representa um grande risco para a democracia, a reputação das pessoas e a confiança na informação pública.</p>
+                <div class="section-header-block">
+                    <h2 class="section-title">O que são Deepfakes?</h2>
+                    <div class="title-divider"></div>
+                </div>
+                <div class="content-text-layout">
+                    <div class="text-column">
+                        <p class="lead-text">Deepfakes são mídias sintéticas — incluindo vídeos, áudios e imagens — geradas por algoritmos de Inteligência Artificial profunda que sobrepõem identidades biológicas reais a simulações digitais hiper-realistas.</p>
+                        <p>Utilizando arquiteturas matemáticas avançadas, softwares conseguem mapear microexpressões faciais, texturas de pele e padrões fonéticos de voz. Embora a tecnologia tenha aplicações revolucionárias na indústria cinematográfica, nos efeitos visuais e na acessibilidade médica, ela se tornou uma arma perigosa quando aplicada na criação de calúnias, fraudes financeiras e manipulações geopolíticas em larga escala.</p>
+                    </div>
+                    <aside class="info-sidebar-box">
+                        <h4>⚠️ Estatística Alvo</h4>
+                        <p>Estudos indicam que mais de 85% das mídias sintéticas não autorizadas circulando na web aberta têm como foco a difamação de indivíduos e a criação de falsos pânicos sociais.</p>
+                        <hr class="box-divider">
+                        <small>Fonte: Relatório Global de Segurança de Dados (2025/2026)</small>
+                    </aside>
                 </div>
             </section>
 
             <section id="identificar" class="section container">
-                <h2 class="section-title">Como Identificar a Desinformação</h2>
-                <p class="section-subtitle">Fique atento aos detalhes. A tecnologia de IA é avançada, mas costuma deixar rastros.</p>
+                <div class="section-header-block">
+                    <h2 class="section-title">Como Identificar a Desinformação</h2>
+                    <p class="section-subtitle">A Inteligência Artificial generativa evolui diariamente, mas os sistemas de renderização comerciais ainda deixam rastros estruturais.</p>
+                </div>
                 
                 <div class="cards-grid">
-                    <div class="card">
-                        <h3>1. Piscar de Olhos</h3>
-                        <p>Muitas deepfakes em vídeo falham em reproduzir o piscar de olhos natural ou movimentos oculares humanos perfeitamente sincronizados.</p>
-                    </div>
-                    <div class="card">
-                        <h3>2. Bordas e Texturas</h3>
-                        <p>Observe as bordas do rosto. Elementos desalinhados perto das orelhas, cabelos estranhos ou pele excessivamente lisa são sinais de alerta.</p>
-                    </div>
-                    <div class="card">
-                        <h3>3. Áudio Desalinhado</h3>
-                        <p>Preste atenção se o movimento dos lábios condiz exatamente com as palavras ditas e se o tom de voz não parece robótico ou metálico.</p>
-                    </div>
-                    <div class="card">
-                        <h3>4. Cruze Fontes</h3>
-                        <p>A regra de ouro da cidadania digital: procure a mesma notícia em veículos de imprensa confiáveis e profissionais antes de compartilhar.</p>
-                    </div>
+                    <article class="card">
+                        <div class="card-icon-wrapper">👁️</div>
+                        <h3>1. Piscar de Olhos e Fluidez</h3>
+                        <p>Muitas ferramentas de geração sintética falham na taxa metabólica natural do piscar de olhos, gerando movimentos oculares perfeitamente estáticos, robóticos ou dessincronizados do eixo central.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div class="card-icon-wrapper">📐</div>
+                        <h3>2. Bordas, Artefatos e Texturas</h3>
+                        <p>Inspecione as áreas limítrofes do rosto. Linhas perto da mandíbula, orelhas e cabelos costumam apresentar desfoques artificiais, pixelização flutuante ou halos de luz desalinhados com o plano de fundo.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div class="card-icon-wrapper">🎙️</div>
+                        <h3>3. Dessincronização Fonética</h3>
+                        <p>O áudio clonado pode parecer metálico ou não acompanhar o movimento mecânico dos dentes e da língua. Preste atenção nas pausas de respiração involuntárias, que frequentemente inexistem em áudios falsificados.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div class="card-icon-wrapper">🔗</div>
+                        <h3>4. Triangulação de Fontes</h3>
+                        <p>O método mais eficiente não é visual, mas metodológico. Sempre verifique se o fato alarmante está replicado de forma padronizada por consórcios de imprensa independentes e agências de checagem certificadas.</p>
+                    </article>
                 </div>
             </section>
 
-            <section id="seguranca" class="section container bg-alt">
-                <h2 class="section-title">Boas Práticas de Segurança Digital</h2>
-                <ul class="tips-list">
-                    <li><strong>Não compartilhe por impulso:</strong> A desinformação apela para o emotional (raiva, medo ou surpresa). Respire antes de clicar em encaminhar.</li>
-                    <li><strong>Verifique os fatos:</strong> Utilize agências de checagem conhecidas para validar conteúdos suspeitos.</li>
-                    <li><strong>Configure sua privacidade:</strong> Proteja suas fotos e vídeos nas redes sociais para evitar que materiais seus sejam usados para treinar IAs maliciosas.</li>
-                    <li><strong>Eduque seu círculo:</strong> Ao notar um parente ou amigo compartilhando fake news, alerte-o de forma construtiva no privado.</li>
-                </ul>
+            <section id="seguranca" class="section container bg-alt-wrapper">
+                <div class="bg-alt-inner-content">
+                    <h2 class="section-title">Manual de Boas Práticas e Higiene Digital</h2>
+                    <p class="section-subtitle">Transforme a sua navegação diária em uma barreira de defesa contra campanhas de engenharia social.</p>
+                    
+                    <div class="tips-grid-layout">
+                        <div class="tip-interactive-card">
+                            <span class="tip-number">01</span>
+                            <h4>Interrompa o Fluxo Impulsivo</h4>
+                            <p>Algoritmos de fake news são desenhados para apelar a sentimentos primários: ódio, indignação, medo ou euforia. Ao se deparar com chamadas excessivamente urgentes, aguarde 5 minutos antes de encaminhar.</p>
+                        </div>
+                        <div class="tip-interactive-card">
+                            <span class="tip-number">02</span>
+                            <h4>Auditoria de Metadados Básicos</h4>
+                            <p>Verifique o domínio do link. Sites maliciosos utilizam extensões falsas para mimetizar grandes portais (Ex: mudando .com.br para .net-urgente.xyz) para induzir acessos involuntários.</p>
+                        </div>
+                        <div class="tip-interactive-card">
+                            <span class="tip-number">03</span>
+                            <h4>Blindagem de Ativos Biométricos</h4>
+                            <p>Evite publicar em redes abertas áudios longos e isolados ou fotos de alta definição em ângulos perfeitamente planos. Esses arquivos servem de matéria-prima barata para treinamento de softwares de clonagem de voz e rosto.</p>
+                        </div>
+                        <div class="tip-interactive-card">
+                            <span class="tip-number">04</span>
+                            <h4>Disseminação Educativa</h4>
+                            <p>Quando identificar um conteúdo sintético falso compartilhado em grupos familiares, não confronte publicamente de forma agressiva. Forneça o link de checagem real de forma amigável no canal privado.</p>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="quiz" class="section container">
-                <h2 class="section-title">Verifique seu Conhecimento</h2>
-                <p class="section-subtitle">Teste seus reflexos contra a desinformação respondendo ao nosso mini-quiz de Verdadeiro ou Falso.</p>
+                <div class="section-header-block">
+                    <h2 class="section-title">Módulo de Validação Rápida</h2>
+                    <p class="section-subtitle">Avalie a sua percepção analítica imediata completando o nosso quiz estruturado.</p>
+                </div>
                 
                 <div class="quiz-container">
                     <div id="quiz-box">
-                        <h3 id="question-text">Carregando pergunta...</h3>
+                        <div class="quiz-header-status">
+                            <span class="quiz-badge-info" id="quiz-counter">Etapa: 1 de 3</span>
+                            <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quiz-progress-bar-fill"></div></div>
+                        </div>
+                        <h3 id="question-text" class="question-main-display">Carregando questionário...</h3>
                         <div class="quiz-buttons">
-                            <button class="btn-quiz btn-true" onclick="checkAnswer(true)">Verdadeiro</button>
-                            <button class="btn-quiz btn-false" onclick="checkAnswer(false)">Falso</button>
+                            <button class="btn-quiz btn-true" id="btn-quiz-true" value="true">Verdadeiro</button>
+                            <button class="btn-quiz btn-false" id="btn-quiz-false" value="false">Falso</button>
                         </div>
                     </div>
-                    <div id="quiz-result" class="hidden">
-                        <h3>Resultado do Teste</h3>
-                        <p id="result-text"></p>
-                        <button class="btn-primary" onclick="restartQuiz()">Refazer Quiz</button>
+
+                    <div id="quiz-result" class="hidden result-quiz-card">
+                        <div class="result-icon-celebration" id="quiz-result-icon">🎯</div>
+                        <h3>Diagnóstico de Percepção</h3>
+                        <p id="result-text" class="result-evaluation-paragraph"></p>
+                        <div class="quiz-analytics-summary" id="quiz-analytics-details">
+                            </div>
+                        <button class="btn-primary" id="btn-quiz-restart">Reiniciar Módulo Avaliativo</button>
                     </div>
                 </div>
             </section>
         </div>
 
-        <div id="laboratorio-avancado" class="tab-content">
+        <div id="laboratorio-avancado" class="tab-content" role="tabpanel" aria-labelledby="tab-laboratorio">
             <section class="section container">
-                <h2 class="section-title">Laboratório Forense Digital</h2>
-                <p class="section-subtitle">Ferramentas de simulação para análise de mídias sintéticas e links de engenharia social.</p>
+                <div class="section-header-block">
+                    <h2 class="section-title">Laboratório de Análise Forense Digital</h2>
+                    <p class="section-subtitle">Console experimental contendo simuladores de algoritmos defensivos para escrutínio de dados suspeitos.</p>
+                </div>
 
-                <div class="bg-alt feature-block">
-                    <h3>1. Desmistificador de URLs (Anti-Phishing)</h3>
-                    <p class="feature-desc">Insira um endereço web suspeito para varrer a estrutura do domínio em busca de táticas comuns de mascaramento de IA.</p>
+                <div class="bg-alt feature-block" id="module-url-scanner">
+                    <div class="feature-header">
+                        <div class="feature-icon">🌐</div>
+                        <div class="feature-title-group">
+                            <h3>1. Desmistificador Heurístico de URLs</h3>
+                            <span class="badge-tech">Análise Sintática de String</span>
+                        </div>
+                    </div>
+                    <p class="feature-desc">Insira caminhos de hipertexto para isolar subdomínios anômalos, ausência de segurança SSL/TLS e táticas homóglifas de falsificação de identidade corporativa.</p>
+                    
                     <div class="interactive-row">
-                        <input type="text" id="url-input" placeholder="Ex: http://www.g1-noticias-urgente-ia.com/fake-news">
-                        <button class="btn-primary" onclick="analisarURL()">Escanear Estrutura</button>
+                        <div class="input-field-wrapper">
+                            <label for="url-input" class="visual-hidden">Endereço Web para Varredura</label>
+                            <input type="text" id="url-input" placeholder="Ex: http://portal-autentico-noticias-urgentes-ia.net/verificacao/token-falso" autocomplete="off">
+                        </div>
+                        <button class="btn-primary" id="btn-analisar-url">Escanear String do Link</button>
                     </div>
-                    <div id="url-output" class="output-box hidden"></div>
+                    
+                    <div id="url-output" class="output-box hidden" aria-live="polite">
+                        </div>
                 </div>
 
-                <div class="bg-alt feature-block">
-                    <h3>2. Simulador de Ruído de Compressão (Análise ELA)</h3>
-                    <p class="feature-desc">Montagens geradas por IA costumam quebrar a taxa de compressão natural da imagem. Suba um arquivo para rodar o filtro estatístico.</p>
-                    <div class="upload-zone">
-                        <input type="file" id="forensic-upload" accept="image/*" onchange="processarImagemSimulada(event)">
-                        <label for="forensic-upload" class="btn-primary">Carregar Imagem para Exame</label>
-                        <p id="file-name-label">Nenhum arquivo selecionado</p>
+                <div class="bg-alt feature-block" id="module-image-forensics">
+                    <div class="feature-header">
+                        <div class="feature-icon">📸</div>
+                        <div class="feature-title-group">
+                            <h3>2. Simulador de Gradiente de Erro de Compressão (ELA)</h3>
+                            <span class="badge-tech">Simulação de Densidade de Quantização</span>
+                        </div>
                     </div>
+                    <p class="feature-desc">Mídias alteradas por processos generativos salvam dados em camadas de compressão dessincronizadas. Carregue uma imagem local para simular a extração do mapa térmico de ruído de pixel.</p>
+                    
+                    <div class="upload-zone" id="drop-zone-container">
+                        <input type="file" id="forensic-upload" accept="image/*" aria-label="Upload de imagem para análise forense">
+                        <div class="upload-prompt-layout">
+                            <span class="upload-cloud-icon">📤</span>
+                            <label for="forensic-upload" class="btn-primary upload-label">Selecionar Imagem de Amostra</label>
+                            <p id="file-name-label" class="upload-filename-display">Nenhum arquivo submetido para análise no servidor local</p>
+                        </div>
+                    </div>
+
                     <div id="forensic-display" class="forensic-grid hidden">
-                        <div>
-                            <h4>Original</h4>
-                            <img id="img-orig-view" src="" alt="Original">
+                        <div class="preview-card-frame">
+                            <div class="frame-header">Canal Original (RGB)</div>
+                            <div class="image-wrapper-box">
+                                <img id="img-orig-view" src="" alt="Amostra original carregada pelo usuário">
+                            </div>
                         </div>
-                        <div>
-                            <h4>Gradiente de Ruído Alavancado</h4>
-                            <div id="noise-canvas-simulation"></div>
+                        <div class="preview-card-frame">
+                            <div class="frame-header">Mapa de Ruído de Artefatos (Simulado)</div>
+                            <div class="image-wrapper-box">
+                                <div id="noise-canvas-simulation" class="noise-simulation-canvas-node"></div>
+                            </div>
                         </div>
                     </div>
-                    <div id="forensic-report" class="output-box hidden"></div>
+                    
+                    <div id="forensic-report" class="output-box hidden" aria-live="polite">
+                        </div>
                 </div>
 
-                <div class="bg-alt feature-block">
-                    <h3>3. Analisador Biométrico (Checklist Humano)</h3>
-                    <p class="feature-desc">Marque as anomalias biológicas identificadas no vídeo sob suspeita para calcular o índice probabilístico de manipulação algorítmica.</p>
-                    <div class="checklist-grid">
-                        <label class="check-item"><input type="checkbox" class="biometric-check" value="30"> Piscar de olhos ausente ou mecânico</label>
-                        <label class="check-item"><input type="checkbox" class="biometric-check" value="25"> O formato das orelhas altera ao virar de lado</label>
-                        <label class="check-item"><input type="checkbox" class="biometric-check" value="20"> Voz robotizada ou sem pausas para respirar</label>
-                        <label class="check-item"><input type="checkbox" class="biometric-check" value="25"> Fundo do cenário distorce perto do rosto</label>
+                <div class="bg-alt feature-block" id="module-biometric-matrix">
+                    <div class="feature-header">
+                        <div class="feature-icon">🧬</div>
+                        <div class="feature-title-group">
+                            <h3>3. Analisador Biométrico de Sinais Vivos</h3>
+                            <span class="badge-tech">Checklist de Inconsistência Orgânica</span>
+                        </div>
                     </div>
+                    <p class="feature-desc">Selecione as falhas de micro-expressão observadas visualmente no vídeo sob investigação para computar o índice de probabilidade estatística de falsificação sintética profunda.</p>
+                    
+                    <div class="checklist-grid" role="group" aria-label="Critérios de avaliação de sinais biológicos">
+                        <div class="check-item-card">
+                            <label class="check-item-label">
+                                <input type="checkbox" class="biometric-check" value="35">
+                                <span class="custom-checkbox-text">
+                                    <strong>Taxa de piscamento anômala:</strong> O sujeito mantém o olhar fixo por períodos sobre-humanos ou pisca de forma intermitente e desconexa.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="check-item-card">
+                            <label class="check-item-label">
+                                <input type="checkbox" class="biometric-check" value="25">
+                                <span class="custom-checkbox-text">
+                                    <strong>Variação de geometria periférica:</strong> Elementos como brincos, óculos, dentes ou o lóbulo da orelha distorcem ou desaparecem temporariamente quando o rosto gira de perfil.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="check-item-card">
+                            <label class="check-item-label">
+                                <input type="checkbox" class="biometric-check" value="20">
+                                <span class="custom-checkbox-text">
+                                    <strong>Desalinhamento labial (Lip-sync error):</strong> Os fonemas emitidos não coincidem milimetricamente com a abertura bucal ou a movimentação da musculatura fonética da face.
+                                </span>
+                            </label>
+                        </div>
+                        <div class="check-item-card">
+                            <label class="check-item-label">
+                                <input type="checkbox" class="biometric-check" value="20">
+                                <span class="custom-checkbox-text">
+                                    <strong>Sombras e iluminação incongruentes:</strong> Os pontos de luz nos olhos apontam para direções diferentes das sombras projetadas pelo nariz ou cenário de fundo.
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    
                     <div class="center-trigger">
-                        <button class="btn-primary" onclick="calcularBiometria()">Calcular Risco Sintético</button>
+                        <button class="btn-primary" id="btn-calcular-biometria">Processar Matriz de Inconsistência</button>
                     </div>
-                    <div id="biometric-output" class="biometric-result-text"></div>
+                    
+                    <div id="biometric-output" class="biometric-result-text-box hidden" aria-live="polite">
+                        </div>
                 </div>
             </section>
         </div>
 
-        <div id="simulador-crise" class="tab-content">
+        <div id="simulador-crise" class="tab-content" role="tabpanel" aria-labelledby="tab-game">
             <section class="section container">
-                <h2 class="section-title">Simulador de Crise: Sobrevivência Digital</h2>
-                <p class="section-subtitle">Você assumiu o comando das redes sociais da escola durante um ataque hacker de deepfakes. Suas escolhas importam!</p>
+                <div class="section-header-block">
+                    <h2 class="section-title">Simulador de Crise Institucional</h2>
+                    <p class="section-subtitle">Gerencie o comitê de segurança informacional da comunidade escolar. Suas decisões contêm ou amplificam os surtos de desinformação automatizada.</p>
+                </div>
 
-                <div class="game-wrapper">
-                    <div class="game-hud">
-                        <div class="hud-item">
-                            <span>Confiança</span>
-                            <strong id="hud-trust" class="color-safe">100%</strong>
+                <div class="game-container-layout">
+                    <div class="game-hud" role="log" aria-label="Painel de status da crise">
+                        <div class="hud-stat-card" id="hud-card-trust">
+                            <span class="hud-label">Confiança Pública</span>
+                            <div class="hud-value-row">
+                                <strong id="hud-trust" class="color-safe">100%</strong>
+                            </div>
+                            <div class="hud-bar-bg"><div class="hud-bar-fill bg-safe" id="bar-trust-fill"></div></div>
                         </div>
-                        <div class="hud-item">
-                            <span>Pânico</span>
-                            <strong id="hud-panic" class="color-danger">0%</strong>
+                        
+                        <div class="hud-stat-card" id="hud-card-panic">
+                            <span class="hud-label">Nível de Pânico</span>
+                            <div class="hud-value-row">
+                                <strong id="hud-panic" class="color-danger">0%</strong>
+                            </div>
+                            <div class="hud-bar-bg"><div class="hud-bar-fill bg-danger" id="bar-panic-fill"></div></div>
                         </div>
-                        <div class="hud-item">
-                            <span>Integridade</span>
-                            <strong id="hud-integrity" class="color-info">100%</strong>
+                        
+                        <div class="hud-stat-card" id="hud-card-integrity">
+                            <span class="hud-label">Integridade de Rede</span>
+                            <div class="hud-value-row">
+                                <strong id="hud-integrity" class="color-info">100%</strong>
+                            </div>
+                            <div class="hud-bar-bg"><div class="hud-bar-fill bg-info" id="bar-integrity-fill"></div></div>
                         </div>
                     </div>
 
-                    <div id="game-active-panel">
-                        <div class="story-box">
-                            <span id="game-step-label">Cenário #1</span>
-                            <p id="game-story-text">Carregando dados da crise...</p>
+                    <div id="game-active-panel" class="game-play-panel">
+                        <div class="story-narration-box">
+                            <div class="story-meta-header">
+                                <span class="story-step-badge" id="game-step-label">Caso #1</span>
+                                <span class="story-alert-indicator">⚠️ Alerta Crítico Em Tempo Real</span>
+                            </div>
+                            <p id="game-story-text" class="story-main-paragraph">Carregando logs do incidente de segurança...</p>
                         </div>
-                        <div id="game-choices-box" class="choices-container"></div>
+                        
+                        <div id="game-choices-box" class="choices-stack-layout"></div>
                     </div>
 
-                    <div id="game-over-panel" class="hidden text-center">
-                        <h3 id="game-result-title">Fim de Jogo</h3>
-                        <p id="game-result-desc">Descrição do resultado.</p>
-                        <button class="btn-primary" onclick="restartGame()">Iniciar Nova Simulação</button>
+                    <div id="game-over-panel" class="hidden game-end-summary-card">
+                        <div class="end-icon-badge" id="game-end-badge-icon">🚨</div>
+                        <h3 id="game-result-title" class="end-title-display">Conclusão dos Protocolos de Crise</h3>
+                        <p id="game-result-desc" class="end-description-paragraph">Calculando impacto nas redes sociais comunitárias...</p>
+                        
+                        <div class="game-score-board" id="game-metrics-board">
+                            </div>
+                        
+                        <button class="btn-primary" id="btn-game-restart">Reiniciar Diretrizes de Simulação</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="central-recursos" class="tab-content" role="tabpanel" aria-labelledby="tab-recursos">
+            <section class="section container">
+                <div class="section-header-block">
+                    <h2 class="section-title">Glossário Operacional e Canais de Proteção</h2>
+                    <p class="section-subtitle">Dicionário de arquitetura de dados e roteiros burocráticos para mitigação de crimes cibernéticos.</p>
+                </div>
+
+                <div class="resources-layout-grid">
+                    <div class="bg-alt resource-card-item">
+                        <div class="resource-card-header">
+                            <span class="res-icon">📘</span>
+                            <h3>Léxico Técnico da Era Sintética</h3>
+                        </div>
+                        
+                        <div class="table-responsive-wrapper">
+                            <table class="glossary-data-table">
+                               <thead>
+                                   <tr>
+                                       <th scope="col">Conceito Técnico</th>
+                                       <th scope="col">Definição Operacional</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td><strong>GANs (Redes Adversariais Generativas)</strong></td>
+                                       <td>Arquitetura de rede neural composta por dois sistemas em disputa simultânea: o Gerador, que forja o dado falso, e o Discriminador, que tenta desmascará-lo, refinando o realismo até a perfeição matemática.</td>
+                                   </tr>
+                                   <tr>
+                                       <td><strong>Ataques de Envenenamento de Dados</strong></td>
+                                       <td>Injeção coordenada de informações falsas ou corrompidas diretamente nos repositórios de treinamento de uma inteligência artificial para distorcer seus resultados preditivos futuros.</td>
+                                   </tr>
+                                   <tr>
+                                       <td><strong>Ataques Homóglifos de Domínio</strong></td>
+                                       <td>Registro de URLs fraudulentas utilizando caracteres de alfabetos distintos (como letras cirílicas) que possuem aparência idêntica a caracteres latinos para induzir o usuário ao erro de acesso.</td>
+                                   </tr>
+                                   <tr>
+                                       <td><strong>Zero-Shot Voice Cloning</strong></td>
+                                       <td>Sistemas algorítmicos de áudio capazes de clonar com precisão cirúrgica o timbre, velocidade e entonação de uma voz humana com base em uma amostra de áudio de apenas três segundos.</td>
+                                   </tr>
+                               </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="bg-alt resource-card-item">
+                        <div class="resource-card-header">
+                            <span class="res-icon">🛡️</span>
+                            <h3>Protocolo Legal de Resposta a Incidentes</h3>
+                        </div>
+                        <p class="resource-intro-text">Caso sofra ou presencie a disseminação de montagens sintéticas não autorizadas que firam a integridade moral de indivíduos da comunidade, adote imediatamente o seguinte roteiro de preservação:</p>
+                        
+                        <ol class="legal-stepper-list">
+                            <li>
+                                <strong>Cadeia de Custódia Base:</strong> Não apague as mensagens de origem de imediato. Realize capturas de tela inteiras (mostrando data, hora, número do remetente) e registre as URLs completas dos perfis propagadores.
+                            </li>
+                            <li>
+                                <strong>Autenticação de Provas Digitais:</strong> Se os dados forem de extrema sensibilidade jurídica, salve o código-fonte da página ou utilize serviços de registro de metadados em blockchain ou atas notariais cartoriais.
+                            </li>
+                            <li>
+                                <strong>Acionamento Técnico de Proximidade:</strong> Registre queixa formal junto à Delegacia Especializada de Repressão aos Crimes Cibernéticos (4C) de seu estado e reporte a conta nas diretrizes de denúncia da própria plataforma de hospedagem.
+                            </li>
+                        </ol>
+
+                        <div class="emergency-contact-box">
+                            <h5>📞 Linhas de Apoio e Monitoramento Comunitário</h5>
+                            <p><strong>SaferNet Brasil:</strong> Centralizada no combate a violações de direitos humanos na internet. Links e relatórios seguros em canal criptografado.</p>
+                            <p><strong>Canais da Ouvidoria Escolar:</strong> Encaminhamento direto de abusos de cyberbullying para o Grêmio e Coordenação Geral.</p>
+                        </div>
                     </div>
                 </div>
             </section>
         </div>
     </main>
 
-    <footer>
-        <div class="container footer-content">
-            <p>&copy; 2026 - Escola Conectada</p>
-            <p>Componente Curricular: <strong>Educação Digital e IA</strong></p>
-            <p>Desenvolvido como projeto de conscientização comunitária.</p>
+    <dialog id="modal-tutorial" class="custom-dialog-box">
+        <div class="dialog-content-wrapper">
+            <h3>Manifesto: A Verdade na Era Pós-Digital</h3>
+            <p>Este painel educacional simula as principais mecânicas de ameaças digitais modernas. O uso dos módulos práticos expande a compreensão científica sobre os limites da segurança da informação em redes neurais de comunicação social.</p>
+            <div class="dialog-footer-actions">
+                <button class="btn-primary" onclick="document.getElementById('modal-tutorial').close()">Entendido, Fechar Janela</button>
+            </div>
+        </div>
+    </dialog>
+
+    <footer class="footer-distributed-frame" role="contentinfo">
+        <div class="container footer-grid-layout">
+            <div class="footer-branding-column">
+                <h4>Cidadania<span>Digital</span></h4>
+                <p class="branding-desc-text">Educação cibernética, ética algorítmica e resiliência comunitária contra o avanço das desinformações geradas por IA.</p>
+            </div>
+            <div class="footer-academic-column">
+                <p>Ambiente de Aprendizagem Curricular &copy; 2026</p>
+                <p>Componente: <strong>Educação Digital e Ciências Computacionais Aplicadas</strong></p>
+                <span class="academic-version-tag">Build v2.4.1 - Otimização Single Page App</span>
+            </div>
         </div>
     </footer>
 
