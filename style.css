@@ -1,4 +1,4 @@
-/* Variáveis para controle de temas (Dark / Light Mode) */
+/* Variáveis do Tema (Dark/Light) */
 [data-theme="dark"] {
     --bg-color: #0b0f19;
     --bg-alt: #161f32;
@@ -21,7 +21,7 @@
     --border-color: #cbd5e1;
 }
 
-/* Reset básico */
+/* Reset Global */
 * {
     margin: 0;
     padding: 0;
@@ -44,6 +44,21 @@ body {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+/* --- LOGICA MULTIPÁGINA INTERNA (TABS) --- */
+.tab-content {
+    display: none;
+    animation: renderFade 0.4s ease-in-out;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes renderFade {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Navbar */
@@ -75,14 +90,17 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-color);
+    color: var(--text-muted);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.2s;
+    padding: 6px 12px;
+    border-radius: 5px;
 }
 
-.nav-links a:hover {
-    color: var(--primary-color);
+.nav-links a:hover, .nav-links a.active {
+    color: var(--text-color);
+    background-color: var(--border-color);
 }
 
 .btn-theme {
@@ -93,14 +111,9 @@ body {
     border-radius: 20px;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s;
 }
 
-.btn-theme:hover {
-    background-color: var(--primary-hover);
-}
-
-/* Seção Hero */
+/* Hero Section */
 .hero-section {
     background: linear-gradient(135deg, var(--bg-alt) 0%, var(--bg-color) 100%);
     padding: 100px 0;
@@ -111,7 +124,6 @@ body {
 .hero-content h1 {
     font-size: 2.8rem;
     margin-bottom: 20px;
-    color: var(--text-color);
 }
 
 .hero-content p {
@@ -129,17 +141,16 @@ body {
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.2s, transform 0.2s;
+    transition: background-color 0.2s;
     border: none;
     cursor: pointer;
 }
 
 .btn-primary:hover {
     background-color: var(--primary-hover);
-    transform: translateY(-2px);
 }
 
-/* Seções Gerais */
+/* Estruturas de Conteúdo */
 .section {
     padding: 80px 0;
 }
@@ -171,7 +182,7 @@ body {
     border-radius: 10px;
 }
 
-/* Grid de Cards (Como Identificar) */
+/* Grid de Cards */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -201,7 +212,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* Lista de Boas Práticas */
 .tips-list {
     list-style: none;
     max-width: 800px;
@@ -223,7 +233,7 @@ body {
     font-weight: bold;
 }
 
-/* Quiz Interativo */
+/* Quiz Style */
 .quiz-container {
     max-width: 600px;
     margin: 0 auto;
@@ -249,16 +259,168 @@ body {
     border-radius: 5px;
     cursor: pointer;
     color: white;
-    transition: opacity 0.2s;
-}
-
-.btn-quiz:hover {
-    opacity: 0.9;
 }
 
 .btn-true { background-color: #10b981; }
 .btn-false { background-color: #ef4444; }
 
+/* ==========================================
+   CSS EXPANSIVO (LABORATÓRIO & GAMEPLAY)
+   ========================================== */
+.feature-block {
+    padding: 30px;
+    margin-bottom: 35px;
+    border: 1px solid var(--border-color);
+}
+
+.feature-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.interactive-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.interactive-row input[type="text"] {
+    flex: 1;
+    min-width: 260px;
+    padding: 12px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    border-radius: 6px;
+}
+
+.output-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 6px;
+    border-left: 5px solid var(--primary-color);
+}
+
+.upload-zone {
+    text-align: center;
+    padding: 30px;
+    border: 2px dashed var(--border-color);
+    background: var(--card-bg);
+    border-radius: 8px;
+}
+
+.upload-zone input { display: none; }
+
+#file-name-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.forensic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.forensic-grid img, #noise-canvas-simulation {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: #000;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 15px;
+}
+
+.check-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+.biometric-result-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.center-trigger { display: flex; justify-content: center; margin-top: 20px; }
+
+/* Layout do Jogo */
+.game-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.game-hud {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+.hud-item span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.hud-item strong { font-size: 1.25rem; }
+.color-safe { color: #10b981; }
+.color-danger { color: #ef4444; }
+.color-info { color: #6366f1; }
+
+.story-box {
+    background: var(--bg-alt);
+    padding: 25px;
+    border-radius: 6px;
+    border-left: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#game-step-label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.choices-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.choices-container button {
+    text-align: left;
+    font-weight: normal;
+}
+
+.text-center { text-align: center; }
 .hidden { display: none !important; }
 
 /* Rodapé */
@@ -267,25 +429,25 @@ footer {
     padding: 30px 0;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    margin-top: 40px;
+    margin-top: 60px;
 }
 
-.footer-content p {
+footer p {
     font-size: 0.9rem;
     color: var(--text-muted);
     margin-bottom: 5px;
 }
 
-/* Responsividade Básica (Mobile) */
+/* Responsividade Mobile */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
         gap: 15px;
     }
     .nav-links {
+        gap: 10px;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
     }
     .hero-content h1 {
         font-size: 2rem;
