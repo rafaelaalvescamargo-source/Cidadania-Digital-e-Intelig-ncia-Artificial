@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital & IA: O Impacto das Deepfakes</title>
+    <title>Cidadania Digital & IA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,85 +13,129 @@
 
     <header class="navbar">
         <div class="logo">Cidadania<span>Digital</span></div>
-        <nav>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav id="nav-menu">
             <ul class="nav-links">
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#deepfakes">Deepfakes</a></li>
-                <li><a href="#identificar">Como Identificar</a></li>
-                <li><a href="#seguranca">Segurança</a></li>
-                <li><a href="#quiz">Quiz</a></li>
+                <li><a href="#" class="nav-link active" data-page="hero">Início</a></li>
+                <li><a href="#" class="nav-link" data-page="deepfakes">O que são Deepfakes</a></li>
+                <li><a href="#" class="nav-link" data-page="identificar">Como Identificar</a></li>
+                <li><a href="#" class="nav-link" data-page="seguranca">Boas Práticas</a></li>
+                <li><a href="#" class="nav-link" data-page="denuncia">Laboratório de Checagem</a></li>
+                <li><a href="#" class="nav-link" data-page="quiz">Desafio Quiz</a></li>
             </ul>
         </nav>
-        <button id="theme-toggle" class="btn-theme" aria-label="Alternar tema">Alternar Tema</button>
+        <button id="theme-toggle" class="btn-theme">Alternar Tema</button>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
-            <div class="container hero-content">
+        <section id="hero" class="page-section active">
+            <div class="hero-container">
                 <h1>Inteligência Artificial e a Fronteira da Verdade</h1>
                 <p>Navegar no mundo digital exige novos superpoderes. Descubra como as fake news automatizadas e as deepfakes moldam nossa sociedade e como você pode se proteger.</p>
-                <a href="#deepfakes" class="btn-primary">Começar Jornada</a>
+                <button class="btn-primary" onclick="navigateTo('deepfakes')">Começar Jornada</button>
             </div>
         </section>
 
-        <section id="deepfakes" class="section container">
-            <h2 class="section-title">O que são Deepfakes?</h2>
-            <div class="content-text">
-                <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial (IA) que substituem o rosto ou a voz de uma pessoa pela de outra, criando situações ultra-realistas que nunca aconteceram.</p>
-                <p>Embora a tecnologia tenha usos legítimos no cinema e no entretenimento, o seu uso malicioso para espalhar <strong>desinformação automatizada</strong> representa um grande risco para a democracia, a reputação das pessoas e a confiança na informação pública.</p>
-            </div>
-        </section>
-
-        <section id="identificar" class="section container">
-            <h2 class="section-title">Como Identificar a Desinformação</h2>
-            <p class="section-subtitle">Fique atento aos detalhes. A tecnologia de IA é avançada, mas costuma deixar rastros.</p>
-            
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>1. Piscar de Olhos</h3>
-                    <p>Muitas deepfakes em vídeo falham em reproduzir o piscar de olhos natural ou movimentos oculares humanos perfeitamente sincronizados.</p>
+        <section id="deepfakes" class="page-section">
+            <div class="container">
+                <h2 class="section-title">O que são Deepfakes?</h2>
+                <div class="content-text">
+                    <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial (IA) que substituem o rosto ou a voz de uma pessoa pela de outra, criando situações ultra-realistas que nunca aconteceram no mundo real.</p>
+                    <p>Embora a tecnologia tenha usos legítimos no cinema e no entretenimento, o seu uso malicioso para espalhar <strong>desinformação automatizada</strong> representa um grande risco para a democracia, a reputação das pessoas e a confiança na informação pública.</p>
                 </div>
-                <div class="card">
-                    <h3>2. Bordas e Texturas</h3>
-                    <p>Observe as bordas do rosto. Elementos desalinhados perto das orelhas, cabelos estranhos ou pele excessivamente lisa são sinais de alerta.</p>
-                </div>
-                <div class="card">
-                    <h3>3. Áudio Desalinhado</h3>
-                    <p>Preste atenção se o movimento dos lábios condiz exatamente com as palavras ditas e se o tom de voz não parece robótico ou metálico.</p>
-                </div>
-                <div class="card">
-                    <h3>4. Cruze Fontes</h3>
-                    <p>A regra de ouro da cidadania digital: procure a mesma notícia em veículos de imprensa confiáveis e profissionais antes de compartilhar.</p>
+                <div class="center-btn">
+                    <button class="btn-primary" onclick="navigateTo('identificar')">Próximo: Como Identificar</button>
                 </div>
             </div>
         </section>
 
-        <section id="seguranca" class="section container bg-alt">
-            <h2 class="section-title">Boas Práticas de Segurança Digital</h2>
-            <ul class="tips-list">
-                <li><strong>Não compartilhe por impulso:</strong> A desinformação apela para o emocional (raiva, medo ou surpresa). Respire antes de clicar em encaminhar.</li>
-                <li><strong>Verifique os fatos:</strong> Utilize agências de checagem conhecidas para validar conteúdos suspeitos.</li>
-                <li><strong>Configure sua privacidade:</strong> Proteja suas fotos e vídeos nas redes sociais para evitar que materiais seus sejam usados para treinar IAs maliciosas.</li>
-                <li><strong>Eduque seu círculo:</strong> Ao notar um parente ou amigo compartilhando fake news, alerte-o de forma construtiva no privado.</li>
-            </ul>
-        </section>
-
-        <section id="quiz" class="section container">
-            <h2 class="section-title">Verifique seu Conhecimento</h2>
-            <p class="section-subtitle">Teste seus reflexos contra a desinformação respondendo ao nosso mini-quiz de Verdadeiro ou Falso.</p>
-            
-            <div class="quiz-container">
-                <div id="quiz-box">
-                    <h3 id="question-text">Carregando pergunta...</h3>
-                    <div class="quiz-buttons">
-                        <button class="btn-quiz btn-true" onclick="checkAnswer(true)">Verdadeiro</button>
-                        <button class="btn-quiz btn-false" onclick="checkAnswer(false)">Falso</button>
+        <section id="identificar" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Como Identificar a Desinformação</h2>
+                <p class="section-subtitle">Fique atento aos detalhes. A tecnologia de IA é avançada, mas costuma deixar rastros.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>1. Piscar de Olhos</h3>
+                        <p>Muitas deepfakes em vídeo falham em reproduzir o piscar de olhos natural ou movimentos oculares humanos perfeitamente sincronizados.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Bordas e Texturas</h3>
+                        <p>Observe as bordas do rosto. Elementos desalinhados perto das orelhas, cabelos estranhos ou pele excessivamente lisa são sinais de alerta.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Áudio Desalinhado</h3>
+                        <p>Preste atenção se o movimento dos lábios condiz exatamente com as palavras ditas e se o tom de voz não parece robótico ou metálico.</p>
+                    </div>
+                    <div class="card">
+                        <h3>4. Cruze Fontes</h3>
+                        <p>A regra de ouro da cidadania digital: procure a mesma notícia em veículos de imprensa confiáveis e profissionais antes de compartilhar.</p>
                     </div>
                 </div>
-                <div id="quiz-result" class="hidden">
-                    <h3>Resultado do Teste</h3>
-                    <p id="result-text"></p>
-                    <button class="btn-primary" onclick="restartQuiz()">Refazer Quiz</button>
+                <div class="center-btn">
+                    <button class="btn-primary" onclick="navigateTo('seguranca')">Próximo: Boas Práticas</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="seguranca" class="page-section">
+            <div class="container">
+                <div class="bg-alt">
+                    <h2 class="section-title">Boas Práticas de Segurança Digital</h2>
+                    <ul class="tips-list">
+                        <li><strong>Não compartilhe por impulso:</strong> A desinformação apela para o emocional (raiva, medo ou surpresa). Respire antes de clicar em encaminhar.</li>
+                        <li><strong>Verifique os fatos:</strong> Utilize agências de checagem conhecidas para validar conteúdos suspeitos.</li>
+                        <li><strong>Configure sua privacidade:</strong> Proteja suas fotos e vídeos nas redes sociais para evitar que materiais seus sejam usados para treinar IAs maliciosas.</li>
+                        <li><strong>Eduque seu círculo:</strong> Ao notar um parente ou amigo compartilhando fake news, alerte-o de forma construtiva no privado.</li>
+                    </ul>
+                </div>
+                <div class="center-btn">
+                    <button class="btn-primary" onclick="navigateTo('denuncia')">Próximo: Laboratório de Checagem</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="denuncia" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Laboratório de Checagem</h2>
+                <p class="section-subtitle">Encontrou uma notícia ou vídeo suspeito? Cole o link ou texto abaixo para simular uma análise de nossa inteligência comunitária.</p>
+                
+                <div class="input-container">
+                    <textarea id="report-input" placeholder="Cole aqui o texto da notícia suspeita ou o link do vídeo..."></textarea>
+                    <button class="btn-primary" onclick="analyzeFact()">Analisar Conteúdo</button>
+                </div>
+                
+                <div id="analysis-result" class="analysis-box hidden">
+                    </div>
+                <div class="center-btn">
+                    <button class="btn-primary" onclick="navigateTo('quiz')">Próximo: Desafio Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="quiz" class="page-section">
+            <div class="container">
+                <h2 class="section-title">Verifique seu Conhecimento</h2>
+                <p class="section-subtitle">Teste seus reflexos contra a desinformação respondendo ao nosso mini-quiz.</p>
+                
+                <div class="quiz-container">
+                    <div id="quiz-box">
+                        <div class="quiz-progress" id="quiz-progress">Pergunta 1 de 3</div>
+                        <h3 id="question-text">Carregando pergunta...</h3>
+                        <div class="quiz-buttons">
+                            <button class="btn-quiz btn-true" onclick="checkAnswer(true)">Verdadeiro</button>
+                            <button class="btn-quiz btn-false" onclick="checkAnswer(false)">Falso</button>
+                        </div>
+                    </div>
+                    <div id="quiz-result" class="hidden">
+                        <h3>Resultado do Teste</h3>
+                        <p id="result-text"></p>
+                        <button class="btn-primary" onclick="restartQuiz()">Refazer Quiz</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -107,4 +151,5 @@
 
     <script src="script.js"></script>
 </body>
+</html>
 </html>
