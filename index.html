@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratório de Investigação Digital</title>
+    <title>Cidadania Digital & IA: O Impacto das Deepfakes</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,76 +15,176 @@
         <div class="logo">Cidadania<span>Digital</span></div>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html">Início</a></li>
-                <li><a href="laboratorio.html" class="active">Laboratório Avançado</a></li>
-                <li><a href="game.html">Simulador de Crise</a></li>
+                <li><a href="#" class="tab-link active" onclick="switchTab(event, 'conteudo-principal')">Início</a></li>
+                <li><a href="#" class="tab-link" onclick="switchTab(event, 'laboratorio-avancado')">Laboratório Avançado</a></li>
+                <li><a href="#" class="tab-link" onclick="switchTab(event, 'simulador-crise')">Simulador de Crise</a></li>
             </ul>
         </nav>
         <button id="theme-toggle" class="btn-theme">Alternar Tema</button>
     </header>
 
-    <main class="container section">
-        <h1 class="section-title">Laboratório Forense Digital</h1>
-        <p class="section-subtitle">Ferramentas experimentais de código aberto para simular a análise de mídias e links sintéticos.</p>
-
-        <div class="bg-alt" style="margin-bottom: 40px; padding: 30px; border-radius: 10px;">
-            <h3>1. Desmistificador de links (URL Phishing & Spoofing)</h3>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Insira um endereço web recebido por mensagem para desmembrar a estrutura do domínio e buscar táticas comuns de ofuscação (como caracteres homóglifos Cyrillic/Latin ou subdomínios falsos).</p>
-            
-            <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-                <input type="text" id="url-input" placeholder="Ex: http://www.g1-noticias-urgente-ia.com/politica" style="flex: 1; padding: 12px; background: var(--card-bg); border: 1px solid var(--border-color); color: var(--text-color); border-radius: 5px; min-width: 250px;">
-                <button class="btn-primary" onclick="analisarURL()">Escanear Estrutura</button>
-            </div>
-            <div id="url-output" style="display: none; padding: 20px; background: var(--card-bg); border-radius: 5px; border-left: 5px solid var(--primary-color);"></div>
-        </div>
-
-        <div class="bg-alt" style="margin-bottom: 40px; padding: 30px; border-radius: 10px;">
-            <h3>2. Scanner Estatístico de Ruído de Pixels (Simulação ELA)</h3>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">Deepfakes e montagens geram discrepâncias nas matrizes de compressão de imagem (Error Level Analysis). Suba uma imagem para rodar o algoritmo visual simulado.</p>
-            
-            <div style="text-align: center; padding: 40px; border: 2px dashed var(--border-color); border-radius: 10px; background: var(--card-bg); margin-bottom: 20px;">
-                <input type="file" id="image-forensic-input" accept="image/*" style="display: none;" onchange="processarImagemSimulada(event)">
-                <label Sver for="image-forensic-input" class="btn-primary" style="cursor: pointer; display: inline-block;">Selecionar Arquivo Imagem</label>
-                <p id="file-name-display" style="margin-top: 15px; color: var(--text-muted); font-size: 0.9rem;">Nenhum arquivo selecionado</p>
-            </div>
-
-            <div id="forensic-graphics" style="display: none; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px;">
-                <div>
-                    <h4 style="margin-bottom: 10px;">Imagem Original</h4>
-                    <img id="img-orig-preview" style="width: 100%; max-height: 250px; object-fit: contain; border-radius: 5px; border: 1px solid var(--border-color);">
+    <main>
+        <div id="conteudo-principal" class="tab-content active">
+            <section id="hero" class="hero-section">
+                <div class="container hero-content">
+                    <h1>Inteligência Artificial e a Fronteira da Verdade</h1>
+                    <p>Navegar no mundo digital exige novos superpoderes. Descubra como as fake news automatizadas e as deepfakes moldam nossa sociedade e como você pode se proteger.</p>
+                    <a href="#deepfakes" class="btn-primary">Começar Jornada</a>
                 </div>
-                <div>
-                    <h4 style="margin-bottom: 10px;">Mapa Térmico de Artefatos de IA</h4>
-                    <div id="canvas-overlay-simulation" style="width: 100%; height: 250px; border-radius: 5px; background: #000; position: relative; overflow: hidden;">
+            </section>
+
+            <section id="deepfakes" class="section container">
+                <h2 class="section-title">O que são Deepfakes?</h2>
+                <div class="content-text">
+                    <p>Deepfakes são vídeos, áudios ou imagens gerados por Inteligência Artificial (IA) que substituem o rosto ou a voz de uma pessoa pela de outra, criando situações ultra-realistas que nunca aconteceram.</p>
+                    <p>Embora a tecnologia tenha usos legítimos no cinema e no entretenimento, o seu uso malicioso para espalhar <strong>desinformação automatizada</strong> representa um grande risco para a democracia, a reputação das pessoas e a confiança na informação pública.</p>
+                </div>
+            </section>
+
+            <section id="identificar" class="section container">
+                <h2 class="section-title">Como Identificar a Desinformação</h2>
+                <p class="section-subtitle">Fique atento aos detalhes. A tecnologia de IA é avançada, mas costuma deixar rastros.</p>
+                
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>1. Piscar de Olhos</h3>
+                        <p>Muitas deepfakes em vídeo falham em reproduzir o piscar de olhos natural ou movimentos oculares humanos perfeitamente sincronizados.</p>
+                    </div>
+                    <div class="card">
+                        <h3>2. Bordas e Texturas</h3>
+                        <p>Observe as bordas do rosto. Elementos desalinhados perto das orelhas, cabelos estranhos ou pele excessivamente lisa são sinais de alerta.</p>
+                    </div>
+                    <div class="card">
+                        <h3>3. Áudio Desalinhado</h3>
+                        <p>Preste atenção se o movimento dos lábios condiz exatamente com as palavras ditas e se o tom de voz não parece robótico ou metálico.</p>
+                    </div>
+                    <div class="card">
+                        <h3>4. Cruze Fontes</h3>
+                        <p>A regra de ouro da cidadania digital: procure a mesma notícia em veículos de imprensa confiáveis e profissionais antes de compartilhar.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="seguranca" class="section container bg-alt">
+                <h2 class="section-title">Boas Práticas de Segurança Digital</h2>
+                <ul class="tips-list">
+                    <li><strong>Não compartilhe por impulso:</strong> A desinformação apela para o emotional (raiva, medo ou surpresa). Respire antes de clicar em encaminhar.</li>
+                    <li><strong>Verifique os fatos:</strong> Utilize agências de checagem conhecidas para validar conteúdos suspeitos.</li>
+                    <li><strong>Configure sua privacidade:</strong> Proteja suas fotos e vídeos nas redes sociais para evitar que materiais seus sejam usados para treinar IAs maliciosas.</li>
+                    <li><strong>Eduque seu círculo:</strong> Ao notar um parente ou amigo compartilhando fake news, alerte-o de forma construtiva no privado.</li>
+                </ul>
+            </section>
+
+            <section id="quiz" class="section container">
+                <h2 class="section-title">Verifique seu Conhecimento</h2>
+                <p class="section-subtitle">Teste seus reflexos contra a desinformação respondendo ao nosso mini-quiz de Verdadeiro ou Falso.</p>
+                
+                <div class="quiz-container">
+                    <div id="quiz-box">
+                        <h3 id="question-text">Carregando pergunta...</h3>
+                        <div class="quiz-buttons">
+                            <button class="btn-quiz btn-true" onclick="checkAnswer(true)">Verdadeiro</button>
+                            <button class="btn-quiz btn-false" onclick="checkAnswer(false)">Falso</button>
                         </div>
+                    </div>
+                    <div id="quiz-result" class="hidden">
+                        <h3>Resultado do Teste</h3>
+                        <p id="result-text"></p>
+                        <button class="btn-primary" onclick="restartQuiz()">Refazer Quiz</button>
+                    </div>
                 </div>
-            </div>
-            <div id="forensic-report-text" style="margin-top: 20px; padding: 15px; border-radius: 5px; background: rgba(0,0,0,0.2); display: none;"></div>
+            </section>
         </div>
 
-        <div class="bg-alt" style="padding: 30px; border-radius: 10px;">
-            <h3>3. Protocolo de Verificação de Identidade Biológica</h3>
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Preencha a matriz técnica abaixo marcando as irregularidades encontradas no vídeo ou áudio analisado para receber uma probabilidade estatística de fraude algorítmica.</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px;" id="checklist-container">
-                <label style="display: flex; gap: 10px; background: var(--card-bg); padding: 15px; border-radius: 5px; border: 1px solid var(--border-color); cursor: pointer;">
-                    <input type="checkbox" class="forensic-check" value="25"> O reflexo de luz nos olhos está fixo ou ausente
-                </label>
-                <label style="display: flex; gap: 10px; background: var(--card-bg); padding: 15px; border-radius: 5px; border: 1px solid var(--border-color); cursor: pointer;">
-                    <input type="checkbox" class="forensic-check" value="20"> O interior da boca/dentes parece borrado ao falar
-                </label>
-                <label style="display: flex; gap: 10px; background: var(--card-bg); padding: 15px; border-radius: 5px; border: 1px solid var(--border-color); cursor: pointer;">
-                    <input type="checkbox" class="forensic-check" value="15"> Brincos, óculos ou colares piscam ou desaparecem de lado
-                </label>
-                <label style="display: flex; gap: 10px; background: var(--card-bg); padding: 15px; border-radius: 5px; border: 1px solid var(--border-color); cursor: pointer;">
-                    <input type="checkbox" class="forensic-check" value="30"> A voz não oscila a respiração nem faz pausas naturais
-                </label>
-            </div>
-            
-            <div style="margin-top: 30px; text-align: center;">
-                <button class="btn-primary" onclick="calcularProbabilidadeDeepfake()">Processar Diagnóstico Matemático</button>
-                <div id="probabilidade-resultado" style="margin-top: 25px; font-size: 1.4rem; font-weight: bold; color: var(--primary-color);"></div>
-            </div>
+        <div id="laboratorio-avancado" class="tab-content">
+            <section class="section container">
+                <h2 class="section-title">Laboratório Forense Digital</h2>
+                <p class="section-subtitle">Ferramentas de simulação para análise de mídias sintéticas e links de engenharia social.</p>
+
+                <div class="bg-alt feature-block">
+                    <h3>1. Desmistificador de URLs (Anti-Phishing)</h3>
+                    <p class="feature-desc">Insira um endereço web suspeito para varrer a estrutura do domínio em busca de táticas comuns de mascaramento de IA.</p>
+                    <div class="interactive-row">
+                        <input type="text" id="url-input" placeholder="Ex: http://www.g1-noticias-urgente-ia.com/fake-news">
+                        <button class="btn-primary" onclick="analisarURL()">Escanear Estrutura</button>
+                    </div>
+                    <div id="url-output" class="output-box hidden"></div>
+                </div>
+
+                <div class="bg-alt feature-block">
+                    <h3>2. Simulador de Ruído de Compressão (Análise ELA)</h3>
+                    <p class="feature-desc">Montagens geradas por IA costumam quebrar a taxa de compressão natural da imagem. Suba um arquivo para rodar o filtro estatístico.</p>
+                    <div class="upload-zone">
+                        <input type="file" id="forensic-upload" accept="image/*" onchange="processarImagemSimulada(event)">
+                        <label for="forensic-upload" class="btn-primary">Carregar Imagem para Exame</label>
+                        <p id="file-name-label">Nenhum arquivo selecionado</p>
+                    </div>
+                    <div id="forensic-display" class="forensic-grid hidden">
+                        <div>
+                            <h4>Original</h4>
+                            <img id="img-orig-view" src="" alt="Original">
+                        </div>
+                        <div>
+                            <h4>Gradiente de Ruído Alavancado</h4>
+                            <div id="noise-canvas-simulation"></div>
+                        </div>
+                    </div>
+                    <div id="forensic-report" class="output-box hidden"></div>
+                </div>
+
+                <div class="bg-alt feature-block">
+                    <h3>3. Analisador Biométrico (Checklist Humano)</h3>
+                    <p class="feature-desc">Marque as anomalias biológicas identificadas no vídeo sob suspeita para calcular o índice probabilístico de manipulação algorítmica.</p>
+                    <div class="checklist-grid">
+                        <label class="check-item"><input type="checkbox" class="biometric-check" value="30"> Piscar de olhos ausente ou mecânico</label>
+                        <label class="check-item"><input type="checkbox" class="biometric-check" value="25"> O formato das orelhas altera ao virar de lado</label>
+                        <label class="check-item"><input type="checkbox" class="biometric-check" value="20"> Voz robotizada ou sem pausas para respirar</label>
+                        <label class="check-item"><input type="checkbox" class="biometric-check" value="25"> Fundo do cenário distorce perto do rosto</label>
+                    </div>
+                    <div class="center-trigger">
+                        <button class="btn-primary" onclick="calcularBiometria()">Calcular Risco Sintético</button>
+                    </div>
+                    <div id="biometric-output" class="biometric-result-text"></div>
+                </div>
+            </section>
+        </div>
+
+        <div id="simulador-crise" class="tab-content">
+            <section class="section container">
+                <h2 class="section-title">Simulador de Crise: Sobrevivência Digital</h2>
+                <p class="section-subtitle">Você assumiu o comando das redes sociais da escola durante um ataque hacker de deepfakes. Suas escolhas importam!</p>
+
+                <div class="game-wrapper">
+                    <div class="game-hud">
+                        <div class="hud-item">
+                            <span>Confiança</span>
+                            <strong id="hud-trust" class="color-safe">100%</strong>
+                        </div>
+                        <div class="hud-item">
+                            <span>Pânico</span>
+                            <strong id="hud-panic" class="color-danger">0%</strong>
+                        </div>
+                        <div class="hud-item">
+                            <span>Integridade</span>
+                            <strong id="hud-integrity" class="color-info">100%</strong>
+                        </div>
+                    </div>
+
+                    <div id="game-active-panel">
+                        <div class="story-box">
+                            <span id="game-step-label">Cenário #1</span>
+                            <p id="game-story-text">Carregando dados da crise...</p>
+                        </div>
+                        <div id="game-choices-box" class="choices-container"></div>
+                    </div>
+
+                    <div id="game-over-panel" class="hidden text-center">
+                        <h3 id="game-result-title">Fim de Jogo</h3>
+                        <p id="game-result-desc">Descrição do resultado.</p>
+                        <button class="btn-primary" onclick="restartGame()">Iniciar Nova Simulação</button>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
@@ -92,9 +192,10 @@
         <div class="container footer-content">
             <p>&copy; 2026 - Escola Conectada</p>
             <p>Componente Curricular: <strong>Educação Digital e IA</strong></p>
+            <p>Desenvolvido como projeto de conscientização comunitária.</p>
         </div>
     </footer>
 
-    <script src="novos-recursos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
